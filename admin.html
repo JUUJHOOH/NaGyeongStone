@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form id="loginForm">
+        <label for="password">비밀번호:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">로그인</button>
+      </form>
+    </div>
+  </div>
+
+  <h1>Admin Page</h1>
+
+  <section>
+    <h2>Guestbook Entries</h2>
+    <div id="adminEntriesContainer"></div>
+  </section>
+
+  <section>
+    <h2>RSVP Entries</h2>
+    <div id="rsvpEntriesContainer"></div>
+  </section>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>
