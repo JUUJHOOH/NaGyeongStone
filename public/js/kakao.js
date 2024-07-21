@@ -1,5 +1,5 @@
 // 카카오 SDK 초기화
-Kakao.init('cec305e1f78338a41f1e4fcf5673a4b4'); // 발급받은 JavaScript 키로 초기화
+Kakao.init(cec305e1f78338a41f1e4fcf5673a4b4); // 발급받은 JavaScript 키로 초기화
 
 // 카카오톡 공유하기 버튼 클릭 이벤트
 document.getElementById('kakao-share-btn').addEventListener('click', function() {
