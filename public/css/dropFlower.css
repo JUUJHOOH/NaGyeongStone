@@ -5,7 +5,7 @@
     height: calc(var(--pxPerWrap)*30px);
     background-image: url('../img/flowers.png');
     background-size: cover;
-    opacity: 0.5;
+    opacity: 0.65;
     animation: fall linear infinite;
     z-index: 500;
 }
@@ -13,11 +13,11 @@
 @keyframes fall {
     0% {
         transform: perspective(1000px) translate(0,0) rotate(0) rotate3d(100,20,30,0deg);
-        opacity: 0.5;
+        opacity: 0.65;
     }
     100% {
         transform: perspective(1000px) translate(110vw,100vh) rotate(360deg) rotate3d(100,190,50,720deg);
-        opacity: 0.2;
+        opacity: 0.3;
     }
 }
 
