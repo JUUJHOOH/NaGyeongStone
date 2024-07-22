@@ -1,0 +1,74 @@
+.flower {
+    position: fixed;
+    top: -100px;
+    width: calc(var(--pxPerWrap)*30px);
+    height: calc(var(--pxPerWrap)*30px);
+    background-image: url('../img/flowers.png');
+    background-size: cover;
+    opacity: 0.5;
+    animation: fall linear infinite;
+    z-index: 500;
+}
+
+@keyframes fall {
+    0% {
+        transform: perspective(1000px) translate(0,0) rotate(0) rotate3d(100,20,30,0deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: perspective(1000px) translate(110vw,100vh) rotate(360deg) rotate3d(100,190,50,720deg);
+        opacity: 0.2;
+    }
+}
+
+/* 꽃이 각기 다른 위치에서 시작하고 속도를 달리하기 위해 추가 스타일 */
+.flower:nth-child(1) {
+    left: calc((10% - 85%)*1.5) ;
+    animation-duration: calc(5s*1.5) ;
+    animation-delay: 4s;
+}
+.flower:nth-child(2) {
+    left: calc((20% - 85%)*1.5) ;
+    animation-duration: calc(7s*1.5) ;
+    animation-delay: 2s;
+}
+.flower:nth-child(3) {
+    left: calc((30% - 85%)*1.5) ;
+    animation-duration: calc(6s*1.5) ;
+    animation-delay: 3s;
+}
+.flower:nth-child(4) {
+    left: calc((40% - 85%)*1.5) ;
+    animation-duration: calc(8s*1.5) ;
+    animation-delay: 1s;
+}
+.flower:nth-child(5) {
+    left: calc((50% - 85%)*1.5) ;
+    animation-duration: calc(5s*1.5) ;
+    animation-delay: 0s;
+}
+.flower:nth-child(6) {
+    left: calc((60% - 85%)*1.5) ;
+    animation-duration: calc(7s*1.5) ;
+    animation-delay: 1.5s;
+}
+.flower:nth-child(7) {
+    left: calc((70% - 85%)*1.5) ;
+    animation-duration: calc(6.*1.5) 5s;
+    animation-delay: 2.5s;
+}
+.flower:nth-child(8) {
+    left: calc((80% - 85%)*1.5) ;
+    animation-duration: calc(7.*1.5) 5s;
+    animation-delay: 3.5s;
+}
+.flower:nth-child(9) {
+    left: calc((90% - 85%)*1.5) ;
+    animation-duration: calc(6s*1.5) ;
+    animation-delay: 4.5s;
+}
+.flower:nth-child(10) {
+    left: calc((99% - 85%)*1.5);
+    animation-duration: calc(8s*1.5) ;
+    animation-delay: 5s;
+}

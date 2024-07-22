@@ -38,7 +38,7 @@ setTimeout(() => {
             }, 700);
         } else {
             setTimeout(() => {
-                window.scrollTo(0,1);
+                window.scrollTo(0,10);
             }, 700);
         }
     }
@@ -128,9 +128,24 @@ setTimeout(() => {
             }
         } else {
             if(window.scrollY !== 0){
-                goToMain();
-            } else {
-                goToHead();
+                if(document.body.classList.contains('checker_a')){
+                } else {
+                    goToMain();
+                    setTimeout(() => {
+                        document.body.classList.add('checker_a');
+                        document.body.classList.remove('checker_b');
+                    }, 800);
+                }
+            }
+            if (window.scrollY < 9){
+                if(document.body.classList.contains('checker_b')){
+                } else {
+                    goToHead();
+                    setTimeout(() => {
+                        document.body.classList.add('checker_b');
+                        document.body.classList.remove('checker_a');
+                    }, 800);
+                }
             }
         }
         console.log("scroll " + window.scrollY);

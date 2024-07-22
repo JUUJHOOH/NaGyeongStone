@@ -37,11 +37,10 @@ main.fade_out {animation:fade-out 0.7s ease forwards;-webkit-animation:fade-out 
 #nagyeongLetter {font-family: 'UhBeeHyeki'; font-size: calc(var(--pxPerWrap)*34px);}
 
 /* 갤러리 스타일 */
-#gallery .NaGyeongGallery {display: flex; flex-wrap: wrap; gap: calc(var(--pxPerWrap)*18px); justify-content: center;}
+#gallery .NaGyeongGallery {display: flex; flex-wrap: wrap; gap: calc(var(--pxPerWrap)*18px); justify-content: center; margin-bottom: calc(var(--pxPerWrap)*18px);}
 #gallery .NaGyeongGallery a {display: block; width: calc(var(--pxPerWrap)*212px); height: calc(var(--pxPerWrap)*159px); overflow: hidden; border-radius: calc(var(--pxPerWrap)*12px);}
 #gallery .NaGyeongGallery a img {object-fit: cover; height: 100%;}
-#gallery .moreGallery {margin-top: calc(var(--pxPerWrap)*18px);}
-#gallery .moreBtn {display: flex; justify-content: center; align-items: center; gap: calc(var(--pxPerWrap)*12px); width: calc(var(--pxPerWrap)*196px); height: calc(var(--pxPerWrap)*55px); border: calc(var(--pxPerWrap)*3px) solid #FF7789; border-radius: 9999px; margin-top: calc(var(--pxPerWrap)*55px); cursor: pointer;}
+#gallery .moreBtn {display: flex; justify-content: center; align-items: center; gap: calc(var(--pxPerWrap)*12px); width: calc(var(--pxPerWrap)*196px); height: calc(var(--pxPerWrap)*55px); border: calc(var(--pxPerWrap)*3px) solid #FF7789; border-radius: 9999px; margin-top: calc(var(--pxPerWrap)*37px); cursor: pointer;}
 .moreBtnSimbolset {display: flex; width: calc(var(--pxPerWrap)*27px); height: calc(var(--pxPerWrap)*27px); flex-wrap: wrap; gap: calc(var(--pxPerWrap)*3px); }
 .moreBtnSimbolset div {width: calc(var(--pxPerWrap)*12px); height: calc(var(--pxPerWrap)*12px); background-color: #333;}
 .BtnSimbol1 {border-radius: 50%;}
