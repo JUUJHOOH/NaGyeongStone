@@ -15,7 +15,7 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button,input[type='nu
 }
 
 /* 메인비쥬얼 스타일 */
-#header {position: absolute; top: 0; z-index: 100; width: 100%; max-width: 768px; transition: transform 0.9s ease-in; transition: opacity 0.1s linear; opacity: calc(var(--opacityPerDemp));}
+#header {position: absolute; top: 0; z-index: 100; width: 100%; max-width: 768px; transition: transform 0.75s ease-in, opacity 0.1s linear; opacity: calc(var(--opacityPerDemp));}
 #header .Mplayer {width: 8%; position: absolute; top: calc(var(--pxPerWrap)*620px); right: 5.55%; z-index: 1; display: none;}
 #header .Mplayer .Mplay {-webkit-animation:wobble-hor-bottom 2s infinite both;animation:wobble-hor-bottom 2s infinite both}
 #header .Mplayer .Mpause {-webkit-animation:slide-top-bottom 4s ease-in-out infinite both;animation:slide-top-bottom 4s ease-in-out infinite both; display: none;}

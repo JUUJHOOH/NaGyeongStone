@@ -10,7 +10,7 @@ const windowHeight = window.innerHeight;
 const mainVisualHeight = document.querySelector('.mainVisual').offsetHeight;
 const winH_mvH_diff = mainVisualHeight - windowHeight;
 const opacityLength = 160/768*wrapWidth;
-const desingLength = 1000/768*wrapWidth;
+const desingLength = 0/768*wrapWidth;
 let didScroll;
 let lastScrollTop = 0;
 const delta = 5;
@@ -38,7 +38,7 @@ setTimeout(() => {
             }, 700);
         } else {
             setTimeout(() => {
-                window.scrollTo(0,1+(opacityLength+desingLength));
+                window.scrollTo(0,1);
             }, 700);
         }
     }
@@ -121,7 +121,7 @@ setTimeout(() => {
                 }
             }
 
-            if(window.scrollY > winH_mvH_diff && window.scrollY <= winH_mvH_diff+(opacityLength) && scrollDirection){
+            if(window.scrollY > winH_mvH_diff/*  && window.scrollY <= winH_mvH_diff+(opacityLength) && scrollDirection */){
                 docStyle.setProperty('--opacityPerDemp', 1-((window.scrollY-winH_mvH_diff)/(opacityLength)));
             } else {
                 docStyle.setProperty('--opacityPerDemp', 1)
