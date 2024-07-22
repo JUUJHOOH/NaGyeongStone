@@ -148,8 +148,8 @@ setTimeout(() => {
                 }
             }
         }
-        console.log("scroll " + window.scrollY);
-        console.log(winH_mvH_diff+opacityLength+desingLength)
+        // console.log("scroll " + window.scrollY);
+        // console.log(winH_mvH_diff+opacityLength+desingLength)
         // console.log("windowHeight " + windowHeight);
         // console.log("mainVisualHeight " + mainVisualHeight);
     }

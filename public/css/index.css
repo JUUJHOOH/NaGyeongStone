@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 *{text-align: center;}
-#wrap {width: 100%; max-width: 768px; margin: 0 auto; color: #333; position: relative;}
+#wrap {width: 100%; max-width: 768px; margin: 0 auto; color: #333;}
 img {width: 100%;}
 .flowerWrap {width: 13.0208%; margin-bottom: calc(var(--pxPerWrap)*12px);}
 .moveOverTheTop {transform: translateY(-100%);}
