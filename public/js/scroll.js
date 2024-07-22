@@ -9,11 +9,16 @@ const main = document.querySelector('#main');
 const windowHeight = window.innerHeight;
 const mainVisualHeight = document.querySelector('.mainVisual').offsetHeight;
 const winH_mvH_diff = mainVisualHeight - windowHeight;
+const opacityLength = 160/768*wrapWidth;
+const desingLength = 1000/768*wrapWidth;
 let didScroll;
+let lastScrollTop = 0;
+const delta = 5;
+let scrollDirection; // Up = false, Down = true
 
 setTimeout(() => {
     if(winH_mvH_diff >= 0){
-        main.style.marginTop = `${winH_mvH_diff}px`;
+        main.style.marginTop = `${winH_mvH_diff+(opacityLength+desingLength)}px`;
     }
 
     document.body.classList.add('noScroll');
@@ -29,11 +34,11 @@ setTimeout(() => {
     function scrollToMain(){
         if(winH_mvH_diff >= 0){
             setTimeout(() => {
-                window.scrollTo(0,winH_mvH_diff+1);
+                window.scrollTo(0,winH_mvH_diff+1+(opacityLength+desingLength));
             }, 700);
         } else {
             setTimeout(() => {
-                window.scrollTo(0,1);
+                window.scrollTo(0,1+(opacityLength+desingLength));
             }, 700);
         }
     }
@@ -61,41 +66,75 @@ setTimeout(() => {
         }
     }
 
+    function goToHead(){
+        header.classList.remove('moveOverTheTop');
+        main.classList.remove('fade_in');
+        main.classList.add('fade_out');
+        noScroll_2();
+        document.body.classList.remove('checker_1');
+    }
+
+    function goToMain(){
+        header.classList.add('moveOverTheTop');
+        main.classList.remove('fade_out');
+        main.classList.add('fade_in');
+        noScroll_1();
+        document.body.classList.remove('checker_2');
+    }
+
     function hasScrolled(){
+        let nowScrollTop = window.scrollY;
+        if(Math.abs(lastScrollTop - nowScrollTop) <= delta){
+            return;
+        }
+        if(nowScrollTop > lastScrollTop){
+            //Scroll down
+            scrollDirection = true;
+            console.log('scroll down');
+        }else{
+            if(nowScrollTop + window.innerHeight < document.body.offsetHeight){
+                //Scroll up
+                scrollDirection = false;
+            }
+        }
+        lastScrollTop = nowScrollTop;
+
         if(winH_mvH_diff >= 0){
-            if(window.scrollY > winH_mvH_diff){
-                header.classList.add('moveOverTheTop');
-                main.classList.remove('fade_out');
-                main.classList.add('fade_in');
-                noScroll_1();
-                document.body.classList.remove('checker_2');
-            } else {
-                header.classList.remove('moveOverTheTop');
-                main.classList.remove('fade_in');
-                main.classList.add('fade_out');
-                noScroll_2();
-                document.body.classList.remove('checker_1');
+            if(window.scrollY > winH_mvH_diff+opacityLength){
+                if(document.body.classList.contains('checker_a')){
+                } else {
+                    goToMain();
+                    setTimeout(() => {
+                        document.body.classList.add('checker_a');
+                        document.body.classList.remove('checker_b');
+                    }, 800);
+                }
+            }
+            if (window.scrollY < winH_mvH_diff+opacityLength+desingLength){
+                if(document.body.classList.contains('checker_b')){
+                } else {
+                    goToHead();
+                    setTimeout(() => {
+                        document.body.classList.add('checker_b');
+                        document.body.classList.remove('checker_a');
+                    }, 800);
+                }
             }
 
-            if(scrollY > 1/768*wrapWidth && scrollY){
-                
+            if(window.scrollY > winH_mvH_diff && window.scrollY <= winH_mvH_diff+(opacityLength) && scrollDirection){
+                docStyle.setProperty('--opacityPerDemp', 1-((window.scrollY-winH_mvH_diff)/(opacityLength)));
+            } else {
+                docStyle.setProperty('--opacityPerDemp', 1)
             }
         } else {
             if(window.scrollY !== 0){
-                header.classList.add('moveOverTheTop');
-                main.classList.remove('fade_out');
-                main.classList.add('fade_in');
-                noScroll_1();
-                document.body.classList.remove('checker_2');
+                goToMain();
             } else {
-                header.classList.remove('moveOverTheTop');
-                main.classList.remove('fade_in');
-                main.classList.add('fade_out');
-                noScroll_2();
-                document.body.classList.remove('checker_1');
+                goToHead();
             }
         }
-        // console.log("scroll " + window.scrollY);
+        console.log("scroll " + window.scrollY);
+        console.log(winH_mvH_diff+opacityLength+desingLength)
         // console.log("windowHeight " + windowHeight);
         // console.log("mainVisualHeight " + mainVisualHeight);
     }

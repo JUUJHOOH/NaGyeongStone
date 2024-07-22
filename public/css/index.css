@@ -15,16 +15,16 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button,input[type='nu
 }
 
 /* 메인비쥬얼 스타일 */
-#header {position: absolute; top: 0; z-index: 100; width: 100%; max-width: 768px; transition: all 0.75s ease-in;}
+#header {position: absolute; top: 0; z-index: 100; width: 100%; max-width: 768px; transition: transform 0.9s ease-in; transition: opacity 0.1s linear; opacity: calc(var(--opacityPerDemp));}
 #header .Mplayer {width: 8%; position: absolute; top: calc(var(--pxPerWrap)*620px); right: 5.55%; z-index: 1; display: none;}
 #header .Mplayer .Mplay {-webkit-animation:wobble-hor-bottom 2s infinite both;animation:wobble-hor-bottom 2s infinite both}
 #header .Mplayer .Mpause {-webkit-animation:slide-top-bottom 4s ease-in-out infinite both;animation:slide-top-bottom 4s ease-in-out infinite both; display: none;}
-#header .mainVisual {position: relative; padding-bottom: calc(var(--pxPerWrap)*240px); background-color: #fff;}
+#header .mainVisual {position: relative; background-color: #fff;}
 #header .mainVisual p {position: absolute; width: 100%; top: calc(var(--pxPerWrap)*1500px); left: 50%; transform: translateX(-50%); text-align: center; font-family: 'Gootneaeum'; font-size: calc(var(--pxPerWrap)*46px); line-height: 1.2; color: #FF7789cc; text-shadow: calc(var(--pxPerWrap)*-1px) 0 #FF7789cc, calc(var(--pxPerWrap)*1px) 0 #FF7789cc, 0 calc(var(--pxPerWrap)*-1px) #FF7789cc, 0 calc(var(--pxPerWrap)*1px) #FF7789cc;}
 #header .mainVisual p span {text-shadow: none;}
 #header .mainVisual .fade-in{animation:fade-in 1.9s linear backwards;-webkit-animation:fade-in 1.9s linear backwards;}
 
-.gradationBox {position: fixed; bottom: 0; width: 100%; height: 0; padding-bottom: calc(var(--pxPerWrap)*160px); background: linear-gradient(#FF778900, #FF7789); z-index: 500; display: none;}
+/* .gradationBox {position: fixed; bottom: 0; width: 100%; height: 0; padding-bottom: calc(var(--pxPerWrap)*160px); background: linear-gradient(#FF778900, #FF7789); z-index: 500; display: none;} */
 
 /* 메인 대분류 스타일 */
 main.fade_in {animation:fade-in 0.7s ease 0.7s backwards;-webkit-animation:fade-in 0.7s ease 0.7s backwards;}
