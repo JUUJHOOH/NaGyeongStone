@@ -7,8 +7,8 @@ document.getElementById('kakao-share-btn').addEventListener('click', function() 
         objectType: 'feed',
         content: {
             title: '나경이의 돌잔치 초대장♡',
-            description: '나경이의 첫 생일 파티, 여기서 만나요! 🧸',
-            imageUrl: 'https://ifh.cc/g/q6dSRK.jpg', // 공유할 이미지 URL
+            description: '나경이 첫 생일파티, 여기서 만나요!🧸',
+            imageUrl: 'https://i.postimg.cc/3xmdcRXk/kakao-Invite3.jpg', // 공유할 이미지 URL
             link: {
                 mobileWebUrl: 'https://appropriate-alligator-nagyeong-7fc063a7.koyeb.app',
                 webUrl: 'https://appropriate-alligator-nagyeong-7fc063a7.koyeb.app'

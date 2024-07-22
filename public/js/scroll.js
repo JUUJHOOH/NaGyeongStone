@@ -95,9 +95,9 @@ setTimeout(() => {
                 document.body.classList.remove('checker_1');
             }
         }
-        console.log("scroll " + window.scrollY);
-        console.log("windowHeight " + windowHeight);
-        console.log("mainVisualHeight " + mainVisualHeight);
+        // console.log("scroll " + window.scrollY);
+        // console.log("windowHeight " + windowHeight);
+        // console.log("mainVisualHeight " + mainVisualHeight);
     }
 
     setInterval(function(){
