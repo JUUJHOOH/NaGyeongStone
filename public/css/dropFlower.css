@@ -1,8 +1,8 @@
 .flower {
     position: fixed;
     top: -100px;
-    width: calc(var(--pxPerWrap)*30px);
-    height: calc(var(--pxPerWrap)*30px);
+    width: calc(var(--pxPerWrap)*36px);
+    height: calc(var(--pxPerWrap)*36px);
     background-image: url('../img/flowers.png');
     background-size: cover;
     opacity: 0.8;
