@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginModal = document.getElementById('loginModal');
     const loginForm = document.getElementById('loginForm');
     const closeButtons = document.querySelectorAll('.close');
+    const entriesPerPage = 5; // 한 페이지에 표시할 엔트리 수
+    let currentPage = 1; // 현재 페이지
 
     loginForm.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }).then(response => {
             if (response.status === 200) {
                 loginModal.style.display = 'none';
-                loadAdminEntries();
+                loadAdminEntries(currentPage);
                 loadRSVPEntries();
             } else {
                 alert('비밀번호가 틀렸습니다.');
@@ -37,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    function loadAdminEntries() {
-        fetch('/all-entries')
+    function loadAdminEntries(page) {
+        fetch(`/all-entries?page=${page}&limit=${entriesPerPage}`)
         .then(response => response.json())
         .then(data => {
             const container = document.getElementById('adminEntriesContainer');
@@ -58,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 container.appendChild(entryDiv);
             });
+            renderPagination(data.totalPages);
         });
     }
 
@@ -84,21 +87,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function renderPagination(totalPages) {
+        const paginationContainer = document.getElementById('paginationContainer');
+        paginationContainer.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.textContent = i;
+            pageButton.addEventListener('click', () => {
+                currentPage = i;
+                loadAdminEntries(currentPage);
+            });
+            paginationContainer.appendChild(pageButton);
+        }
+    }
+
     window.deleteEntry = function(id) {
         const password = prompt('비밀번호를 입력하세요:');
         if (password) {
             fetch('/delete', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ id, password })
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id, password })
             }).then(response => {
-            if (response.status === 200) {
-                loadAdminEntries();
-            } else {
-                alert('비밀번호가 틀렸습니다.');
-            }
+                if (response.status === 200) {
+                    loadAdminEntries(currentPage);
+                } else {
+                    alert('비밀번호가 틀렸습니다.');
+                }
             });
         }
     }
