@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Create tables
 db.serialize(() => {
-  db.run(`CREATE TABLE guestbook (
+  db.run(`CREATE TABLE IF NOT EXISTS guestbook (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     message TEXT NOT NULL,
@@ -22,7 +22,7 @@ db.serialize(() => {
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
   )`);
 
-  db.run(`CREATE TABLE rsvp (
+  db.run(`CREATE TABLE IF NOT EXISTS rsvp (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     companions INTEGER NOT NULL,
